@@ -26,6 +26,7 @@ class employee
         }
         void setAge(int age)
         {
+            if(age<=20)
             Age = age;
         }
         int getAge()
