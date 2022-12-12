@@ -1,19 +1,30 @@
 #include<iostream>
 using namespace std;
 
+class employee
+{
+    public:
+        string Name;
+        string Company;
+        int Age;
+
+        void introduction(){
+            cout<<"Name: "<<Name<<endl;
+            cout<<"Company: "<<Company<<endl;
+            cout<<"Age: "<<Age<<endl;
+        }
+        employee(string name, string company,int age)
+        {
+            Name = name;
+            Company = company;
+            Age = age;
+        }
+};
 int main()
 {
-    int rows;
-    cout<<"Enter number of rows: ";
-    cin >>rows;
+    employee employee1 = employee("Billy","Microsoft",20);
+    employee1.introduction();
 
-    for(int i = 1;i<=rows;++i)
-    {
-        for(int j=1;j<=i;++j)
-        {
-            cout<<"* ";
-        }
-        cout<<"\n";
-    }
-    return 0;
+    employee employee2 = employee("Willy","Google",20);
+    employee2.introduction();
 };
