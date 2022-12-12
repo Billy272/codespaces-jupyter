@@ -3,11 +3,35 @@ using namespace std;
 
 class employee
 {
-    public:
+    private:
         string Name;
         string Company;
         int Age;
-
+    public:
+        void setName(string name)
+        {
+            Name = name;
+        }
+        string getName()
+        {
+            return Name;
+        }
+        void setCompany(string company)
+        {
+            Company = company;
+        }
+        string getCompany()
+        {
+            return Company;
+        }
+        void setAge(int age)
+        {
+            Age = age;
+        }
+        int getAge()
+        {
+            return Age;
+        }
         void introduction(){
             cout<<"Name: "<<Name<<endl;
             cout<<"Company: "<<Company<<endl;
@@ -27,4 +51,7 @@ int main()
 
     employee employee2 = employee("Willy","Google",20);
     employee2.introduction();
+
+    employee1.setAge(40);
+    cout<<employee1.getName()<<" is "<<employee1.getAge()<< "years old.";
 };
