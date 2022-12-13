@@ -1,12 +1,17 @@
 #include<iostream>
 using namespace std;
 
-class employee
+class  iemployee
+{
+    virtual void AskForPromotion()=0;
+};
+class employee:iemployee
 {
     private:
-        string Name;
         string Company;
         int Age;
+    protected:
+        string Name;
     public:
         void setName(string name)
         {
@@ -44,15 +49,58 @@ class employee
             Company = company;
             Age = age;
         }
+        void AskForPromotion()
+        {
+            if(Age>30)
+            {
+                cout<<Name<<" is promoted!"<<endl;
+            }
+            else
+            {
+                cout<<Name<<" is not promoted!"<<endl;
+            }
+        }
+        void work()
+        {
+            cout<<Name<<" is walking,task,performing tasks..."<<endl;
+        }
 };
+
+class Developer: public employee
+{
+    public:
+        string FavProgLanguage;
+        Developer(string name, string company,int age,string favProgLanguage)
+            :employee(name,company,age)
+        {
+            FavProgLanguage=favProgLanguage;
+        }
+        void FixBug()
+        {
+            cout<<getName()<<" fixed a bug using " <<FavProgLanguage<<" \n";
+        }
+
+};
+
+class Teacher : employee
+{
+    public:
+    string Subject;
+    void prepareLesson()
+    {
+        cout<<getName()<<" teaches "<<Subject<<endl;
+    }
+    Teacher(string name, string company,int age,string subject)
+    :employee(name,company,age)
+    {
+        Subject = subject;
+    }
+}
 int main()
 {
-    employee employee1 = employee("Billy","Microsoft",20);
-    employee1.introduction();
-
-    employee employee2 = employee("Willy","Google",20);
-    employee2.introduction();
-
-    employee1.setAge(40);
-    cout<<employee1.getName()<<" is "<<employee1.getAge()<< "years old.";
+    Developer d=Developer("Billy","Microsoft",20,"C++");
+   Teacher t=Teacher("Jack","Hommie3",38,"History");
+   d.work();
+   t.work();
+   return 0;
 };
