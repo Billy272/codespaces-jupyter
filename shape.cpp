@@ -6,9 +6,10 @@ class shape
     public:
       virtual double calcarea()
       {
-         return 0;
-      }
+          return 0;
+      };
 };
+
 
 class circle:public shape
 {
